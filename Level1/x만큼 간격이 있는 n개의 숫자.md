@@ -11,3 +11,20 @@ x	| n	| answer
 2	| 5	| [2,4,6,8,10]
 4	| 3	| [4,8,12]
 -4	| 2	| [-4, -8]
+## 문제 풀이
+``` kotlin
+class Solution {
+    fun solution(x: Int, n: Int): LongArray {
+        var answer = longArrayOf()
+        for(i in 1..n){
+            answer = answer.plus(i*x.toLong())
+        }
+        return answer
+    }
+}
+```
+## 학습 내용
+for문과 Int형을 Long형으로 변환하여 주는 toLong함수를 이용하여 순차적으로 증가하는 리스트를 만드는 방법을 배웠다.
+
+
+
