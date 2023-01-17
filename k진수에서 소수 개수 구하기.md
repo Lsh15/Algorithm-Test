@@ -30,4 +30,30 @@ n	| k	| result
 입출력 예 #2   
 110011을 10진수로 바꾸면 110011입니다. 여기서 찾을 수 있는 조건에 맞는 소수는 11, 11 2개입니다. 이와 같이, 중복되는 소수를 발견하더라도 모두 따로 세어야 합니다.
 
- 
+## 문제 풀이
+``` kotlin 
+class Solution {
+    fun solution(n: Int, k: Int): Int {
+        var answer: Int = 0
+        val p = n.toString(k)
+        val list = p.split("0")
+        for (i in list){
+            if (i.equals("")) continue
+            val num = i.toLong()
+            if (isPrime(num)){
+                answer++
+            }
+        }
+        return answer
+    }   
+    fun isPrime(n:Long):Boolean{
+        if(n < 2) return false
+        for(i in 2..Math.sqrt(n.toDouble()).toInt()) if(n % i == 0L) return false
+        return true
+    }
+}
+```
+## 학습 내용
+toString함수를 이용하여 n을 k진수로 변환하고, split함수를 이용하여 0을 기준으로 list로 분리하고, Long형으로 변환한 값을 num에 대입하고, Math.sqrt함수를 이용하여 제곱근을 구하고, 소수값을 판별하는 isPrime함수를 이용하여 답을 구하는 방법을 배웠다.
+
+
